@@ -1,0 +1,44 @@
+#!/bin/sh
+xrdb ~/.Xresources &
+# compton --blur-background --blur-kern "3x3box" --blur-method "kawase" --blur-strength 5 &
+compton &
+sxhkd &
+dunst &
+setxkbmap -option compose:rctrl &
+# for m in $(polybar --list-monitors | cut -d":" -f1); do
+#     MONITOR=$m polybar --reload example &
+# done
+# polybar -r top &
+wal -R &
+redshift -l 40.712776:-74.005974 &
+
+# hsetroot -solid '#555555'
+xsetroot -cursor_name left_ptr
+
+#bspc config external_rules_command ~/.config/bspwm/scripts/external_rules.sh
+
+bspc monitor eDP1 -d 1 2 3 4 5 6
+bspc monitor DP1 -d 7 8 9 0
+bspc config border_radius 7
+
+bspc rule -a Emacs state=tiled
+
+bspc config border_width         3
+bspc config window_gap          25
+
+# source the colors.
+. "${HOME}/.cache/wal/colors.sh"
+
+# Set the border colors.
+bspc config normal_border_color "$color1"
+bspc config active_border_color "$color4"
+bspc config focused_border_color "$color15"
+# Use the line below if you are on bspwm >= 0.9.4
+bspc config presel_feedback_color "$color1"
+# Use the line below if you are on bspwm < 0.9.4
+#bspc config presel_border_color "$color1"
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   false
+bspc config gapless_monocle      false
+bspc config focus_follows_pointer true

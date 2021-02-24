@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#
+# returns connected wifi ssid
+
+STATUS=$(nmcli device status | awk '/^wlp2s0/ { print $3 }')
+SSID_NAME=$(nmcli | awk '/^wlp2s0/ { print $4 }')
+# if [ $STATUS = "connected" ]; then
+#    if [ $SSID_NAME = "ChromeBook" ]; then
+#         SSID="Guest"
+#     else
+#         SSID=$SSID_NAME
+#     fi
+# else
+#     SSID=$STATUS
+# fi
+
+if [ $STATUS = "connected" ]; then
+  SSID=$SSID_NAME
+else
+  SSID=$STATUS
+fi
+
+echo " $SSID |"

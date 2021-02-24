@@ -1,0 +1,58 @@
+window {
+  background-color: rgba(--wofi-rgb-color0, 0);
+  font-family: "Iosevka Medium Extended";
+}
+
+#input image {
+  color: rgba(0, 0, 0, 0);
+}
+
+#input {
+  margin-bottom: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 10px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  background-color: --wofi-color0;
+  color: #e0e0e0;
+  border: 5px solid --wofi-color1;
+  border-radius: 0px;
+  transition: 0.5s ease-in-out;
+}
+
+#input:focus {
+  background-color: rgba(--wofi-rgb-color0, 0.85);
+  margin-left: 5px;
+  margin-right: 5px;
+  transition: 0.5s ease-in-out;
+}
+
+#outer-box {
+  background-color: transparent;
+  margin: 10px;
+}
+
+#entry:selected {
+  border-bottom: 2px dashed --wofi-color1;
+  border-top: 2px dashed --wofi-color1;
+  border-radius: 12px;
+  color: transparent;
+  background-color: transparent;
+}
+
+#scroll {
+  padding: 25px;
+  background-color: rgba(--wofi-rgb-color0, 1);
+  border-top: 5px solid --wofi-color1;
+  border: 2px solid --wofi-color1;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+
+label {
+  /* margin: -2px; */
+  padding: 5px;
+  color: #e0e0e0;
+}

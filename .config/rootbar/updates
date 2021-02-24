@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# get number of packages that need to be updated
+if ! updates=$(checkupdates 2> /dev/null | wc -l ); then
+    updates=0
+fi
+
+if [ "$updates" -gt 0 ]; then
+    echo "U: $updates |"
+else
+    echo "U: 0 |"
+fi

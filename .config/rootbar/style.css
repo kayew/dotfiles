@@ -1,0 +1,29 @@
+window {
+  background-color: --rootbar-color0;
+  color: --rootbar-color15;
+  font-family: "Iosevka Medium";
+}
+
+label {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#left {
+  margin-left: 15px;
+}
+
+#right {
+  margin-right: 15px;
+}
+
+.ws {
+  margin: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#ws-focused {
+  background-color: rgba(--rootbar-rgb-color8, 0.3);
+  border-bottom: 3px solid rgba(--rootbar-rgb-color1, 0.8);
+}

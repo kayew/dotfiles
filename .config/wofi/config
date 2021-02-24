@@ -1,0 +1,7 @@
+width=650
+height=500
+location=top
+colors=/home/sebastian/Documents/schemes/tomorrow-night
+y=150
+filter_rate=100
+dmenu-parse_action=true
