@@ -1,0 +1,35 @@
+theme = "native"
+
+[[block]]
+block = "time"
+interval = 1
+format = "%A, %b. %e, %Y %T"
+
+[[block]]
+block = "custom"
+shell = "bash"
+command = "/home/sebastian/.config/rootbar/updates"
+interval = 600
+
+[[block]]
+block = "custom"
+shell = "bash"
+command = "/home/sebastian/.config/rootbar/network"
+interval = 4
+
+[[block]]
+block = "custom"
+shell = "bash"
+command = "/home/sebastian/.config/rootbar/battery"
+interval = 4
+
+[[block]]
+block = "cpu"
+interval = 1
+format = "{utilization}"
+
+[[block]]
+block = "memory"
+interval = 1
+format_mem = "{Mupi}%"
+

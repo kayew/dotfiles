@@ -8,7 +8,7 @@ include "$HOME/.cache/wal/colors-sway"
 
 ### Programs
 exec wlsunset -l 40.86 -L -73.98
-exec rootbar
+#exec rootbar
 exec_always mako
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id /usr/bin/autotiling
@@ -22,6 +22,18 @@ set {
   $right l
   $term termite
   $menu wofi
+}
+
+bar {
+    font pango:Iosevka Medium 12
+    position top
+    status_command i3status-rs
+    colors {
+        background #1d1f21
+        statusline #ffffff
+        focused_workspace #cc6666cc #c5c8c64d #ffffff
+        inactive_workspace #1d1f21 #1d1f21 #ffffff
+    }
 }
 
 font pango:Iosevka Medium Extended 12

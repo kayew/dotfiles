@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#
+# simple screenshot tool for wayland that copies to clipboard
+# requires: jq, wl-clipboard, grim, slurp
+# github.com/kayew
+
+region=$(swaymsg -t get_tree | jq -r '.. | (.nodes? // empty)[] | select(.pid and .visible) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp)
+
+grim -g "$region" - | wl-copy --type image/png

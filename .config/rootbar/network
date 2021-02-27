@@ -20,4 +20,4 @@ else
   SSID=$STATUS
 fi
 
-echo " $SSID |"
+echo " $SSID"

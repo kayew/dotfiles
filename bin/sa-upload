@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+#
+# screenshot script for x11, sway, and GNOME
+# written by Sebastian Alejandro - 2021 (c)
+
+fname=$(tr -dc '[:alnum:]' < /dev/urandom | head -c 6)
+userDir=~/Pictures
+file="$userDir/screenshots/$fname.png"
+domain="https://i.salejandro.me"
+host="linode"
+wm=$(wmctrl -m | grep -oP "(?<=^Name: ).*")
+
+if [ "$wm" = "wlroots wm" ]; then
+  region=$(swaymsg -t get_tree | jq -r '.. | (.nodes? // empty)[] | select(.pid and .visible) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp)
+  grim -g "$region" $file
+elif [ "$wm" == "GNOME Shell" ]; then
+  gnome-screenshot -af $file
+else
+  maim -u -s $file
+fi
+
+if [ ! -f $file ]; then
+    :
+else
+    scp $file $host:~/i
+    if [[ "$wm" = "wlroots wm" || "$wm" = "GNOME Shell" ]]; then
+      printf "$domain/$fname.png" | wl-copy -n
+    else
+      printf "$domain/$fname.png" | xclip -se c
+    fi
+    notify-send "$domain/$fname.png"
+fi
