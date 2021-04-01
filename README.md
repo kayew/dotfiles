@@ -10,7 +10,7 @@
 
 #### pics:
 
-![rice](dancin.png)
+![rice](desk.png)
 
 ![wofi](https://i.salejandro.me/kH1jKJ.png)
 
