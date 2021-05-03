@@ -4,4 +4,4 @@
 PERCENT=$(cat /sys/class/power_supply/BAT0/capacity)
 STATUS=$(cat /sys/class/power_supply/BAT0/status)
 
-echo "${STATUS:0:1}: $PERCENT%"
+echo "${STATUS:0:1}: $PERCENT% |"

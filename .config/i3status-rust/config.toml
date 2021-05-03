@@ -8,19 +8,19 @@ format = "%A, %b. %e, %Y %T"
 [[block]]
 block = "custom"
 shell = "bash"
-command = "/home/sebastian/.config/rootbar/updates"
+command = "/home/sebastian/.config/i3status-rust/updates"
 interval = 600
 
 [[block]]
 block = "custom"
 shell = "bash"
-command = "/home/sebastian/.config/rootbar/network"
+command = "/home/sebastian/.config/i3status-rust/network"
 interval = 4
 
 [[block]]
 block = "custom"
 shell = "bash"
-command = "/home/sebastian/.config/rootbar/battery"
+command = "/home/sebastian/.config/i3status-rust/battery"
 interval = 4
 
 [[block]]
