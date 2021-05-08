@@ -9,7 +9,6 @@ call plug#begin('~/.config/nvim/plug')
 Plug 'itchyny/lightline.vim'
 Plug 'dylanaraps/wal.vim'
 Plug 'chriskempson/base16-vim'
-Plug 'mike-hearn/base16-vim-lightline'
 Plug 'junegunn/goyo.vim'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-fugitive'
@@ -54,9 +53,9 @@ set number
 
 nmap <C-R> :StripWhitespace<CR>:w<CR>
 
-let g:lightline = { 'colorscheme': 'base16_google_dark' }
+let g:lightline = { 'colorscheme': 'wombat' }
 
-let base16colorspace=256
+"" let base16colorspace=256
 colorscheme wal
 
 "" Disable the blinking cursor.

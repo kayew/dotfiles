@@ -19,7 +19,7 @@ set {
   $down j
   $up k
   $right l
-  $term termite
+  $term foot
   $menu wofi
 }
 
