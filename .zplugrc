@@ -1,0 +1,32 @@
+#!/usr/bin/env zsh
+if [[ ! -d ~/.zplug ]]; then
+  git clone https://github.com/zplug/zplug ~/.zplug
+  source ~/.zplug/init.zsh && zplug update --self
+fi
+
+source ~/.zplug/init.zsh
+
+#CASE_INSENSITIVE=false
+#HYPHEN_INSENSITIVE=true
+
+zplug "modules/autosuggestions", from:prezto, defer:2
+zplug "modules/prompt", from:prezto, defer:3
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/mercurial", from:oh-my-zsh
+zplug "modules/completion", from:prezto
+zplug "lib/history", from:oh-my-zsh
+zplug "zsh-users/zsh-syntax-highlighting", defer:1
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load
+
+prompt minimal
+
