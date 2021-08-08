@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 
-notify-send -t 3000 "hi r/unixporn" "what's poppin?"
 grim ~/Pictures/desktop-$(date "+%Y-%m-%d").png
