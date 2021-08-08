@@ -36,15 +36,13 @@ alias spacecore='ssh spacecore'
 
 alias getip="curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'"
 alias push='git remote | xargs -L1 git push --all'
+alias ypush='yadm remote | xargs -L1 yadm push --all'
 
 # Other stuffs
-launch-gnome(){
-  MOZ_ENABLE_WAYLAND=1 QT_QPA_PLATFORM=wayland XDG_SESSION_TYPE=wayland exec dbus-run-session gnome-session
-}
 
-gscheme(){
-  curl "$1" | grep -o "[a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9]" > $2
-}
+# launch-gnome(){
+#   MOZ_ENABLE_WAYLAND=1 QT_QPA_PLATFORM=wayland XDG_SESSION_TYPE=wayland exec dbus-run-session gnome-session
+# }
 
 truecolortest () {
   awk 'BEGIN{
@@ -62,13 +60,13 @@ truecolortest () {
 }'
 }
 
-random_scheme() {
-  for _ in {1..16}
-  do
-    echo "#$(openssl rand -hex 3)"
-  done | paleta
-  blocks
-}
+# random_scheme() {
+#   for _ in {1..16}
+#   do
+#     echo "#$(openssl rand -hex 3)"
+#   done | paleta
+#   blocks
+# }
 
 sedcheat () {
   echo '==>sed quick guide<==
