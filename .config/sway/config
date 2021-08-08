@@ -7,6 +7,9 @@ exec_always mako
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id /usr/bin/autotiling
 
+# exec pipewire
+# exec pipewire-pulse
+
 # fix long app start times
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \

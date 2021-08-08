@@ -5,7 +5,7 @@ colors=/home/sebastian/Documents/schemes/tomorrow-night
 
 primary-output=eDP-1
 primary-left=ws
-primary-center=date
+primary-center=date,beats
 primary-right=mem,cpu,bat,net,updates
 primary-interval=100
 
@@ -45,4 +45,9 @@ net-dso=external
 net-exec=/home/sebastian/.config/rootbar/network
 net-length=25
 net-interval=4000
+
+beats-dso=external
+beats-exec=/home/sebastian/bin/beats.sh
+beats-lengths=10
+beats-interval=2000
 
