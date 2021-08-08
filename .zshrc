@@ -1,8 +1,6 @@
-# Lines configured by zsh-newuser-install
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zhistory
-# End of lines configured by zsh-newuser-install
 
 setopt appendhistory
 setopt hist_ignore_space
@@ -142,11 +140,12 @@ zoomlaunch() {
   unset QT_QPA_PLATFORM
   firejail ./ZoomLauncher
 }
+
 # Custom Enviroment Variables
 
 export PLAN9=/home/sebastian/plan9
 export GOPATH=$HOME/go
-export PATH="$PATH:$HOME/bin:$PLAN9/bin:$GOPATH/bin:$HOME/.emacs.d/bin:$HOME/.local/bin:$HOME/opt/GNAT/2020/bin:$HOME/.nimble/bin:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/bin:$GOPATH/bin:$HOME/.emacs.d/bin:$HOME/.local/bin:$HOME/.nimble/bin:$HOME/.cargo/bin"
 export GPG_TTY=$(tty)
 export PF_INFO="ascii title os kernel uptime pkgs memory wm pallete"
 export PF_ASCII="linux"
@@ -157,10 +156,5 @@ export OPENCV_LOG_LEVEL=ERROR
 export MOZ_DISABLE_GMP_SANDBOX=1
 export NNTPSERVER="news.tilde.club:119"
 
-# source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-
 source $HOME/.zplugrc
 
-# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source /usr/share/doc/pkgfile/command-not-found.zsh
