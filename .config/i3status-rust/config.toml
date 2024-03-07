@@ -1,35 +1,38 @@
+[theme]
 theme = "native"
+
+[icons]
+icons = "awesome5"
 
 [[block]]
 block = "time"
 interval = 1
-format = "%A, %b. %e, %Y %T"
+format = " $timestamp.datetime(f:'%A, %b. %e, %Y %T') "
 
 [[block]]
 block = "custom"
 shell = "bash"
-command = "/home/sebastian/.config/i3status-rust/updates"
+command = "/home/seb/.config/i3status-rust/updates"
+format=" $text.str(max_w:4) "
 interval = 600
 
 [[block]]
-block = "custom"
-shell = "bash"
-command = "/home/sebastian/.config/i3status-rust/network"
-interval = 4
+block="net"
+device="wlan0"
+format=" NET: $ssid "
 
 [[block]]
 block = "custom"
 shell = "bash"
-command = "/home/sebastian/.config/i3status-rust/battery"
+command = "/home/seb/.config/i3status-rust/battery"
+format=" $text.str(max_w:6) "
 interval = 4
 
 [[block]]
 block = "cpu"
 interval = 1
-format = "{utilization}"
+format = " CPU: $utilization "
 
 [[block]]
 block = "memory"
-interval = 1
-format_mem = "{Mupi}%"
-
+format = " MEM: $mem_total_used_percents.eng(w:2) "

@@ -2,18 +2,11 @@ include "$HOME/.cache/wal/colors-sway"
 
 ### Programs
 exec wlsunset -l 40.86 -L -73.98
-exec rootbar
+# exec rootbar
 exec_always mako
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always --no-startup-id /usr/bin/autotiling
+exec_always --no-startup-id autotiling
 
-# exec pipewire
-# exec pipewire-pulse
-
-# fix long app start times
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec hash dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+xwayland enable
 
 ### Variables
 set {
@@ -26,25 +19,27 @@ set {
   $menu wofi
 }
 
-# bar {
-#     font pango:Iosevka Medium 12
-#     position top
-#     status_command i3status-rs
-#     colors {
-#         background #1d1f21
-#         statusline #ffffff
-#         focused_workspace #cc6666cc #c5c8c64d #ffffff
-#         inactive_workspace #1d1f21 #1d1f21 #ffffff
-#     }
-# }
+bar {
+    font pango:Iosevka Medium 12
+    position top
+    gaps 10
+    tray_output none
+    status_command i3status-rs
+    colors {
+        background #1d1f21
+        statusline #ffffff
+        focused_workspace #c5c8c6bf #81a2be #ffffff
+        inactive_workspace #1d1f21 #1d1f21 #ffffff
+    }
+}
 
 font pango:Iosevka Medium Extended 12
 
 # output "*" bg /home/sebastian/Pictures/Wallpapers/bloodmoon.png fill
-output "*" background $wallpaper fill
-# output "*" bg '#5e6b93' solid_color
-client.focused $color0 $background $foreground $color7 $background
-
+# output "*" background $wallpaper fill
+output "*" bg '#5e6b93' solid_color
+# client.<class> <border> <background> <text> [<indicator> [<child_border>]]
+client.focused '#1d1f21' '#373b41' '#c5c8c6' '#c5c8c6'
 
 ### Idle configuration
 bindsym $mod+Ctrl+Shift+l exec 'grim /tmp/screen.png; corrupter /tmp/screen.png /tmp/screen.png; swaylock --clock --indicator -fi /tmp/screen.png'
@@ -56,7 +51,7 @@ exec swayidle -w \
 
 ### Input configuration
 
-input "1739:30383:DELL07E6:00_06CB:76AF_Touchpad" {
+input "1739:0:Synaptics_TM3625-010" {
     tap enabled
     dwt enabled
     drag enabled
@@ -110,9 +105,9 @@ bindsym {
     XF86AudioMute exec pamixer -t
     XF86AudioRaiseVolume exec pamixer -i 10
     XF86AudioLowerVolume exec pamixer -d 10
-    XF86AudioPlay exec playerctl play-pause
-    XF86AudioNext exec playerctl next
-    XF86AudioPrev exec playerctl previous
+    # XF86AudioPlay exec playerctl play-pause
+    # XF86AudioNext exec playerctl next
+    # XF86AudioPrev exec playerctl previous
 }
 
 #
@@ -122,16 +117,12 @@ default_border normal
 default_floating_border normal
 # hide_edge_borders both
 default_orientation vertical
-gaps outer 20
-gaps inner 20
+gaps outer 10
+gaps inner 10
 for_window {
     # [tiling] split toggle
     [app_id=".*"] border pixel 3 # Wayland native
     [class=".*"] border pixel 3  # xwayland apps
-    [title="Farge"] floating enable
-    [title="Stardew Valley"] fullscreen enable
-    [title="win10"] floating enable
-    [title="\ -\ Sharing\ Indicator$"] floating enable, sticky enable
 }
 
 #
@@ -242,4 +233,4 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# include @sysconfdir@/sway/config.d/*
+include /etc/sway/config.d/*

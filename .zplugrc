@@ -28,5 +28,5 @@ fi
 # Then, source plugins and add commands to $PATH
 zplug load
 
-prompt minimal
+prompt skwp
 

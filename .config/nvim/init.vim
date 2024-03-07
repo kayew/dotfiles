@@ -8,30 +8,19 @@ call plug#begin('~/.config/nvim/plug')
 
 Plug 'itchyny/lightline.vim'
 Plug 'dylanaraps/wal.vim'
-Plug 'chriskempson/base16-vim'
-Plug 'junegunn/goyo.vim'
 Plug 'ap/vim-css-color'
-Plug 'tpope/vim-fugitive'
 Plug 'rust-lang/rust.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'wlangstroth/vim-racket'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 call plug#end()
-
-source /home/sebastian/.config/nvim/mark-prev.vim
 
 "" Copy/Paste/Cut
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
-
-au BufRead,BufNewFile *.md setlocal textwidth=80
-au BufRead,BufNewFile *.gmi setlocal textwidth=80
 
 set encoding=utf-8
 set fileencoding=utf-8
@@ -55,7 +44,6 @@ nmap <C-R> :StripWhitespace<CR>:w<CR>
 
 let g:lightline = { 'colorscheme': 'wombat' }
 
-"" let base16colorspace=256
 colorscheme wal
 
 "" Disable the blinking cursor.
